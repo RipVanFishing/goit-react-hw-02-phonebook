@@ -1,5 +1,11 @@
+import React from "react";
+import { Phonebook } from "./Phonebook/Phonebook";
+
+
 export const App = () => {
   return (
+    <>
+      <Phonebook props="ВСЕ РАБОТАЕТ??!?"/>
     <div
       style={{
         height: '100vh',
@@ -11,7 +17,9 @@ export const App = () => {
         color: '#010101',
       }}
     >
+      
       React homework template
-    </div>
+      </div>
+      </>
   );
 };
