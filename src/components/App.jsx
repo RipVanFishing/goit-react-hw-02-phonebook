@@ -1,25 +1,25 @@
-import React from "react";
-import { Phonebook } from "./Phonebook/Phonebook";
 
+import React, { Component } from "react";
+import { nanoid } from "nanoid";
+import Contacts from "./Contacts";
+import Phonebook from "./Phonebook/Phonebook";
+// import  Phonebook from "./Phonebook/Phonebook";
 
-export const App = () => {
-  return (
-    <>
-      <Phonebook props="ВСЕ РАБОТАЕТ??!?"/>
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        textTransform: 'uppercase',
-        color: '#010101',
-      }}
-    >
-      
-      React homework template
-      </div>
-      </>
-  );
-};
+export class App extends Component {
+
+  state = {
+  contacts: [],
+  }
+
+  formSubmitHandler = data => {
+    console.log(data)
+  }
+ 
+  render() {
+    return (
+      <>
+        <Phonebook onSubmit={this.formSubmitHandler}/>
+    </>
+    )
+  }
+}
