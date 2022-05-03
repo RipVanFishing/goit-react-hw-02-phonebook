@@ -13,12 +13,16 @@ export class App extends Component {
 
   formSubmitHandler = data => {
     console.log(data)
+    this.setState({
+      contacts: this.state.contacts
+    })
   }
  
   render() {
     return (
       <>
-        <Phonebook onSubmit={this.formSubmitHandler}/>
+        <Phonebook onSubmit={this.formSubmitHandler} />
+        <p>{this.state.contacts }</p>
     </>
     )
   }
