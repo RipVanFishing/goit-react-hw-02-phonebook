@@ -6,7 +6,7 @@ const Contacts = ({onSubmit}) => {
         <div>
             <h2>Contacts:</h2>  
             <ul>
-                <li>{ onSubmit}</li>
+               
            </ul>   
         </div>
     )
