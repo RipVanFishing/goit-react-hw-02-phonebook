@@ -1,4 +1,4 @@
-import Contacts from "components/Contacts";
+
 import React, {Component} from "react";
 import css from './Phonebook.module.css';
 import { nanoid } from "nanoid";
@@ -60,7 +60,7 @@ class Phonebook extends Component {
                     <button type="submit" className={css.button_submit} >Submit</button>
               </form>
               
-          <Contacts  onSubmit={this.handleSubmit}/>
+          
         </>
         
     );

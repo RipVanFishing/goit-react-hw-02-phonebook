@@ -14,16 +14,18 @@ export class App extends Component {
 
   formSubmitHandler = data => {
     console.log(data)
-    this.setState({
-      contacts: this.state.contacts.push(data)
-    })
+    let newContact = {id: nanoid(), ...data}
+
+    this.setState(({contacts}) => ({ contacts: [newContact, ...this.state.contacts] })
+    )
   }
+    
  
   render() {
     return (
       <>
         <Phonebook onSubmit={this.formSubmitHandler} />
-      
+        <Contacts contacts={ this.state.contacts}/>
         
     </>
     )
