@@ -33,7 +33,7 @@ class Phonebook extends Component {
      const randomId = nanoid();
       return (
             <>
-                <h1>Phonebook</h1>
+                <h1 className={css.title_phonebook}>Phonebook</h1>
                 <form className={css.phonebook_form} onSubmit={this.handleSubmit}>
                     <label className={css.form_label}> Name
                         <input className={css.form_input}
@@ -57,7 +57,7 @@ class Phonebook extends Component {
                           onChange={this.handleChange}
                           value={this.state.number}
 /></label>
-                    <button type="submit" className={css.button_submit} >Submit</button>
+                    <button type="submit" className={css.button_submit} >Add contact</button>
               </form>
               
           

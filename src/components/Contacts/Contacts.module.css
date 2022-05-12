@@ -1,0 +1,13 @@
+.list {
+    padding: 0;
+    list-style: square;
+    margin-left: 25px;
+}
+
+.title_contacts {
+    margin-left: 25px;
+}
+.text_name {
+    font-size: 25px;
+    font-style: italic;
+}

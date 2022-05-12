@@ -1,9 +1,10 @@
 .phonebook_form {
     display:flex;
     flex-direction: column;
+    margin-left: 25px;
 }
 .button_submit {
-width: 60px;
+width: 100px;
 height: 30px;
 border-radius: 5px;
 background-color: blue;
@@ -21,4 +22,7 @@ color: white;
     width: 420px;
     height: 35px;
     margin-top: 20px;
+}
+.title_phonebook {
+    margin-left: 25px;
 }
