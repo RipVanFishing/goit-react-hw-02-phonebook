@@ -1,8 +1,11 @@
 
 import React, { Component } from "react";
 import { nanoid } from "nanoid";
+import Notiflix from 'notiflix';
 import Contacts from "./Contacts";
+import SearchForm from "components/SearchForm";
 import Phonebook from "./Phonebook/Phonebook";
+
 
 
 export class App extends Component {
@@ -17,21 +20,39 @@ export class App extends Component {
     
   }
 
-  formSubmitHandler = data => {
-    
-    let newContact = { id: nanoid(), ...data }
-    console.log(newContact)
+   handleFilter = (event) => {
+         const { value } = event.currentTarget;
+        this.setState({
+           filter: value
+        })
+        
+    }
 
+  formSubmitHandler = data => {
+    const arrName = this.state.contacts.map( el => el.name.toLowerCase())
+    const newContact = { id: nanoid(), ...data }
+    console.log(newContact)
+    arrName.includes(data.name.toLowerCase()) ? Notiflix.Notify.failure(`${data.name} is already in your contacts`,{timeout:5000}) : 
     this.setState(() => ({ contacts: [newContact, ...this.state.contacts] })
     )
   }
+
+  deleteContact = (contactId) => {
+    this.setState(prevState => ({
+      contacts: prevState.contacts.filter(contact => contact.id !== contactId)
+    })
+  )}
     
  
   render() {
+    const { filter,contacts } = this.state;
+    const normalizeFilter = this.state.filter.toLowerCase()
+    const filteredNames = this.state.contacts.filter(contact => contact.name.toLowerCase().includes(normalizeFilter))
     return (
       <>
-        <Phonebook onSubmit={this.formSubmitHandler} />
-        <Contacts contacts={ this.state.contacts}/>
+        <Phonebook onSubmit={this.formSubmitHandler} contacts={contacts.name} />
+        <SearchForm value={filter} onChange={this.handleFilter }/>
+        <Contacts contacts={filteredNames} onDelete={this.deleteContact }/>
         
     </>
     )
