@@ -1,7 +1,8 @@
 .list {
     padding: 0;
-    list-style: square;
+    list-style: none;
     margin-left: 25px;
+    width: 400px;
 }
 
 .title_contacts {
@@ -10,4 +11,14 @@
 .text_name {
     font-size: 25px;
     font-style: italic;
+}
+.item_name {
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+}
+.delete_button {
+    margin-left: 15px;
+    background-color: blue;
+    color: white;
 }
