@@ -19,6 +19,15 @@ export class App extends Component {
     filter: ''
     
   }
+  componentDidUpdate(prevProps, prevState) {
+   
+    if (prevState.contacts !== this.state.contacts) {
+      const parsedContacts = JSON.stringify(this.state.contacts)
+    localStorage.setItem('contacts', parsedContacts)
+   }
+   
+
+  }
 
    handleFilter = (event) => {
          const { value } = event.currentTarget;
@@ -33,7 +42,8 @@ export class App extends Component {
     const newContact = { id: nanoid(), ...data }
     console.log(newContact)
     arrName.includes(data.name.toLowerCase()) ? Notiflix.Notify.failure(`${data.name} is already in your contacts`,{timeout:5000}) : 
-    this.setState(() => ({ contacts: [newContact, ...this.state.contacts] })
+      this.setState(() => ({ contacts: [newContact, ...this.state.contacts] })
+      
     )
   }
 
